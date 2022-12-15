@@ -22,7 +22,7 @@
 // function chain1(c2){
 //     setTimeout(function(){
 // console.log('22')
-// c2(chain3)
+// c2(chain2)
 //     },1000) 
 // }
 
@@ -42,56 +42,132 @@
 
 //promise
 
-function pros(){
-    return new Promise(function(resolve,reject){
+// function pros(){
+//     return new Promise(function(resolve,reject){
 
-resolve();
-    })
-}
-    pros()
-    .then(function(){
-        console.log("success")
-    })
-    .catch(function(){
-        console.log("success")
-    });
+// resolve();
+//     })
+// }
+//     pros()
+//     .then(function(){
+//         console.log("success")
+//     })
+//     .catch(function(){
+//         console.log("error")
+//     });
 
-    //promise chain
-    function pchain(){
-        return new Promise(function(resolve,reject){
+//     //promise chain
+//     function pchain(){
+//         return new Promise(function(resolve,reject){
     
-    resolve();
-        })
-    }
+//     resolve();
+//         })
+//     }
 
-    function pchain1(){
-        return new Promise(function(resolve,reject){
+//     function pchain1(){
+//         return new Promise(function(resolve,reject){
+//             console.log("success-1")
+//             resolve();
+//     })
+// }
+// function pchain2(){
+//     return new Promise(function(resolve,reject){
+//         console.log("success-2")
+//         resolve();
+// })
+// }
+//method one
+        // pchain()
+        // .then(function(){
+        //     console.log("success")
+        //     pchain2()
+        //     .then(function(){
+        //         console.log("success-2",'2')
+        //         pchain1()
+        //         .then(function(){
+        //             console.log("success-1",'1')})
+        //             .catch(function(){
+        //                 console.log("err-2")
+        //             });})
+        //         .catch(function(){
+        //             console.log("err-1")
+        //         });
+        // })
+        // .catch(function(){
+        //     console.log("err")
+        // });
+//method
+
+// pchain()
+// .then(pchain2)
+// .then(pchain1)
+// .catch(
+//     console.log("err-1")
+// )
+
+
+//promise all
+//         function pchain(){
+//             return new Promise(function(resolve,reject){
+//         console.log('start')
+//         resolve();
+//             })
+//         }
     
-            resolve();
-    })
-}
-function pchain2(){
-    return new Promise(function(resolve,reject){
+//         function pchain1(){
+//             return new Promise(function(resolve,reject){
+//                 console.log("success-1")
+//                 resolve();
+//         })
+//     }
+//     function pchain2(){
+//         return new Promise(function(resolve,reject){
+//             console.log("success-2")
+//             resolve();
+//     })
+//     }
+// Promise.all([pchain(),pchain2(),pchain1()])
+// .then(
+//     function(){
+//         console.log('success')
+//     }
+// )
+// .catch({
+//     function(){
+//         console.log('err')
+//     }
+// })
 
-        resolve();
-})
-}
-        pchain()
-        .then(function(){
-            console.log("success")
-            pchain1()
-            .then(function(){
-                console.log("success-1")
-                pchain2()
-                .then(function(){
-                    console.log("success-2")})
-                    .catch(function(){
-                        console.log("err-2")
-                    });})
-                .catch(function(){
-                    console.log("err-1")
-                });
-        })
-        .catch(function(){
-            console.log("err")
-        });
+
+// function pchain(){
+//                 return new Promise(function(resolve,reject){
+//             console.log('start')
+//             reject();
+//                 })
+//             }
+        
+//             function pchain1(){
+//                 return new Promise(function(resolve,reject){
+//                     console.log("success-1")
+//                     resolve();
+//             })
+//         }
+//         function pchain2(){
+//             return new Promise(function(resolve,reject){
+//                 console.log("success-2")
+//                 resolve();
+//         })
+//         }
+
+//         async function tryme(){
+//             try{
+
+// var wait=await pchain2();
+// var wait1=await pchain();
+// var wait2=await pchain1()}
+// catch{
+// console.log('err')
+// }
+// // console.log('res',wait,wait1,wait2)
+//         }
+//         tryme();
